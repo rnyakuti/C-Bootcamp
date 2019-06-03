@@ -86,7 +86,7 @@ int main() {
       std::cout << "\x1b[1;42m**********************************************\n";  
     }
     else if(cmd == "SEARCH"){
-
+      break;
     }
     else if(cmd == "EXIT"){
       std::cout << "EXITING....";
