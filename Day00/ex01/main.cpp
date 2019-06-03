@@ -45,6 +45,12 @@ class Contact{
     std::getline(std::cin,dark_secret);
 
   }
+  void  displayContact(Contact contacts[]){
+    int i = 0;//it needs to account if there is anything at all
+   while(i < 8)
+   {
+  }
+  }
 };
 static void command_options()
 {
@@ -66,17 +72,18 @@ int main() {
   int i = 0;
   while(1){
     std::getline(std::cin,cmd);
-    if(i>8)
+
+    if(cmd == "ADD" && i<8){
+      new_contact[i].addContact();
+      i++;
+    }
+    else if(i>8)
     {
       std::cout << "\x1b[1;42m**********************************************\n";
       std::cout << "\x1b[1;42m***                                        ***\n";
       std::cout << "\x1b[1;42m***            PHONE BOOK IS FULL          ***\n";
       std::cout << "\x1b[1;42m***                                        ***\n";
       std::cout << "\x1b[1;42m**********************************************\n";  
-    }
-    if(cmd == "ADD" && i<=7){
-      new_contact[i].addContact();
-      i++;
     }
     else if(cmd == "SEARCH"){
 
