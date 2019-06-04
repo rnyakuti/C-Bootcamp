@@ -41,37 +41,53 @@
 	{
 		if( i == 0)
 		{
-			std::cout << "\x1b[1;42m**********************************************\n";
-			std::cout << "\x1b[1;42m***                                        ***\n";
-			std::cout << "\x1b[1;42m***           PHONE BOOK IS EMPTY          ***\n";
-			std::cout << "\x1b[1;42m***                                        ***\n";
-			std::cout << "\x1b[1;42m**********************************************\n";
+			std::cout << "\x1b[30;42m**********************************************\n";
+			std::cout << "\x1b[30;42m***                                        ***\n";
+			std::cout << "\x1b[30;42m***           PHONE BOOK IS EMPTY          ***\n";
+			std::cout << "\x1b[30;42m***                                        ***\n";
+			std::cout << "\x1b[30;42m**********************************************\n";
 			return;
 		}
 		else
 		{
-			std::cout << "\x1b[1;42m         " << j << "|";
-			std::cout << "\x1b[1;42m"<<tr_std(new_contact[j].first_name) << "|";
-			std::cout <<"\x1b[1;42m" <<tr_std(new_contact[j].last_name) << "|";
-			std::cout <<"\x1b[1;42m" <<tr_std(new_contact[j].nickname) << "|" << std::endl;
+			std::cout << "\x1b[30;42m         " << j << "|";
+			std::cout << "\x1b[30;42m"<<tr_std(new_contact[j].first_name) << "|";
+			std::cout <<"\x1b[30;42m" <<tr_std(new_contact[j].last_name) << "|";
+			std::cout <<"\x1b[30;42m" <<tr_std(new_contact[j].nickname) << "|" << std::endl;
 
 		}
 		j++;
 	}
 	j = 0;
-	std::cout << "\x1b[1;42m**********************************************\n";
-	std::cout << "\x1b[1;42m***                                        ***\n";
-	std::cout << "\x1b[1;42m***          ENTER IN AN INDEX             ***\n";
-	std::cout << "\x1b[1;42m***                                        ***\n";
-	std::cout << "\x1b[1;42m**********************************************\n";
-	std::getline(std::cin, cmd);
-	j = std::atoi(cmd.c_str());
+	std::cout << "\x1b[30;42m**********************************************\n";
+	std::cout << "\x1b[30;42m***                                        ***\n";
+	std::cout << "\x1b[30;42m***          ENTER IN AN INDEX             ***\n";
+	std::cout << "\x1b[30;42m***                                        ***\n";
+	std::cout << "\x1b[30;42m**********************************************\n";
+	//std::getline(std::cin, cmd);
+	std::cin >> j;
+	//std::atoi(cmd.c_str());
+	while(!std::cin)
+	{
+		std::cout << "\x1b[30;42m**********************************************\n";
+		std::cout << "\x1b[30;42m***                                        ***\n";
+		std::cout << "\x1b[30;46m***          ENTER IN A NUMBER             ***\n";
+		std::cout << "\x1b[30;42m***                                        ***\n";
+		std::cout << "\x1b[30;42m**********************************************\n";
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cin >> j;
+	}
 	if (j >= 0 && j < i)
 	{
+		std::cout << "\n\x1b[30;46m***         CONTACT FOUND       ***\n";
 		std::cout << "FirstNameame      : " + new_contact[j].first_name << std::endl;
 		std::cout << "LastName          : " + new_contact[j].last_name + "\n" ;
 		std::cout << "NickName          : " + new_contact[j].nickname + "\n";
-		std::cout << "Postal Address    : " + new_contact[j].login + "\n";
+		std::cout << "Postal Address    : " + new_contact[j].login + "\n\n\n";
+	}
+	else{
+			std::cout << "\x1b[3046m******* FAILED, INDEX OUT OF RANGE *********\n";
 	}
 	return ;
 
@@ -79,14 +95,14 @@
 
 static void command_options()
 {
-  std::cout << "\x1b[1;42m*********************************************\n";
-  std::cout << "\x1b[1;42m***                   +                   ***\n";
-  std::cout << "\x1b[1;42m***               P H O N E               ***\n";  
-  std::cout << "\x1b[1;42m***                B O O K                ***\n";
-  std::cout << "\x1b[1;42m***                   +                   ***\n";
-  std::cout << "\x1b[1;42m***          <<COMMAND OPTIONS>>          ***\n";
-  std::cout << "\x1b[1;42m***            ADD SEARCH EXIT            ***\n";
-  std::cout << "\x1b[1;42m*********************************************\n";    
+  std::cout << "\x1b[30;42m*********************************************\n";
+  std::cout << "\x1b[30;42m***                   +                   ***\n";
+  std::cout << "\x1b[30;42m***               P H O N E               ***\n";  
+  std::cout << "\x1b[30;42m***                B O O K                ***\n";
+  std::cout << "\x1b[30;42m***                   +                   ***\n";
+  std::cout << "\x1b[30;42m***          <<COMMAND OPTIONS>>          ***\n";
+  std::cout << "\x1b[30;42m***            ADD SEARCH EXIT            ***\n";
+  std::cout << "\x1b[30;42m*********************************************\n";    
 }
 
 int main() {
@@ -100,13 +116,13 @@ int main() {
 
     if(cmd == "ADD")
 	{
-		if(i>8)
+		if(i>7)
 		{
-			std::cout << "\x1b[1;42m**********************************************\n";
-			std::cout << "\x1b[1;42m***                                        ***\n";
-			std::cout << "\x1b[1;42m***            PHONE BOOK IS FULL          ***\n";
-			std::cout << "\x1b[1;42m***                                        ***\n";
-			std::cout << "\x1b[1;42m**********************************************\n";
+			std::cout << "\xb[30;42m**********************************************\n";
+			std::cout << "\x1b[30;42m***                                        ***\n";
+			std::cout << "\x1b[30;42m***            PHONE BOOK IS FULL          ***\n";
+			std::cout << "\x1b[30;42m***                                        ***\n";
+			std::cout << "\x1b[30;42m**********************************************\n";
 		}
 		else
 		{
@@ -116,9 +132,9 @@ int main() {
      
     }
     else if(cmd == "SEARCH"){
-	  std::cout << "++++++++++|++++++++++|++++++++++|++++++++++|\n";
+	  	std::cout << "++++++++++|++++++++++|++++++++++|++++++++++|\n";
       std::cout << "     INDEX| FirstName|  LastName|  NickName|\n";
-	  std::cout << "++++++++++|++++++++++|++++++++++|++++++++++|\n";
+	  	std::cout << "++++++++++|++++++++++|++++++++++|++++++++++|\n";
 	  searchContacts(i,new_contact);
 
     }
@@ -127,11 +143,11 @@ int main() {
       break;
     }
     else{
-      std::cout << "\x1b[1;42m**********************************************\n";
-      std::cout << "\x1b[1;42m*** ENTER IN ONE OF THE FOLLOWING COMMANDS ***\n";
-      std::cout << "\x1b[1;42m***          <<COMMAND OPTIONS>>           ***\n";
-      std::cout << "\x1b[1;42m***            ADD SERCH EXIT              ***\n";
-      std::cout << "\x1b[1;42m**********************************************\n";    
+      std::cout << "\x1b[30;42m**********************************************\n";
+      std::cout << "\x1b[30;42m*** ENTER IN ONE OF THE FOLLOWING COMMANDS ***\n";
+      std::cout << "\x1b[30;42m***          <<COMMAND OPTIONS>>           ***\n";
+      std::cout << "\x1b[30;42m***            ADD SERCH EXIT              ***\n";
+      std::cout << "\x1b[30;42m**********************************************\n";    
      }
 
     }

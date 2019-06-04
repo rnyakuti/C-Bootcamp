@@ -1,5 +1,7 @@
 #include "Contact.hpp"
 
+Contact::Contact(void){
+}
 
   void Contact::addContact(){
     std::cout << "\x1b[1;42mAdding contact[+] \n";
