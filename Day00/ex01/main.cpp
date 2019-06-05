@@ -64,9 +64,7 @@
 	std::cout << "\x1b[30;42m***          ENTER IN AN INDEX             ***\n";
 	std::cout << "\x1b[30;42m***                                        ***\n";
 	std::cout << "\x1b[30;42m**********************************************\n";
-	//std::getline(std::cin, cmd);
 	std::cin >> j;
-	//std::atoi(cmd.c_str());
 	while(!std::cin)
 	{
 		std::cout << "\x1b[30;42m**********************************************\n";
