@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include "FragTrap.hpp"
 /*class FragTrap
 {
 	
